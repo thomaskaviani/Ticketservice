@@ -1,0 +1,34 @@
+.dashboard {
+
+    // Dashboard nav
+    @import 'dashboard/nav';
+
+    // Dashboard nav
+    @import 'dashboard/topBar';
+
+    .page-container {
+        min-height: 100vh;
+        padding-left: 300px;
+        background-color: #f7f7f7;
+        .dash {
+            padding: 40px;
+        }
+    }
+    .dashblock{
+        background-color: white;
+        padding: 30px;
+        border-radius: 2px;
+        border-bottom: 0 none;
+        box-shadow: 0 1px 5px rgba(0,0,0,0.46);
+    }
+    .success.dashblock {
+        padding: 15px 30px;
+        background-color: #27ae60;
+        color: white;
+        margin-bottom: 20px;
+    }
+    // My events
+    @import 'dashboard/nav';
+}
+
+

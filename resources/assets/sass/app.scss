@@ -1,0 +1,37 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+  box-sizing: border-box;
+}
+*, :after, :before {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+// Variables
+@import 'variables';
+
+
+.navbar-laravel {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+// Website scss
+@import 'website';
+
+// Website scss
+@import 'dashboard';
+
+@import "~uikit/src/scss/variables-theme.scss";
+@import "~uikit/src/scss/variables.scss";
+
+@import "~uikit/src/scss/mixins.scss";
+@import "~uikit/src/scss/mixins-theme.scss";
+
+@import "~uikit/src/scss/uikit.scss";
+@import "~uikit/src/scss/uikit-theme.scss";
