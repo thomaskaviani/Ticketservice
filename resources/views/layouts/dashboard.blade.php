@@ -30,7 +30,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{asset('UIKit/css/uikit.min.css')}}">
     <script src="{{asset('UIKit/js/uikit.min.js')}}"></script>
-    <script src="{{asset('UIKit/js/uikit-icons.min.js')}}"></script>
+    <!--<script src="{{asset('UIKit/js/uikit-icons.min.js')}}"></script> veroorzaakt duplicatie waarom idk--> 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->

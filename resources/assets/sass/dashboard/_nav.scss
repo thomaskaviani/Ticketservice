@@ -1,5 +1,5 @@
 .sidebar {
-    background-color: #eeeeee;
+    background-color: #363434;
     bottom: 0;
     overflow: hidden;
     position: fixed;
@@ -11,4 +11,7 @@
     z-index: 1000;
     padding: 0px 40px;
     box-sizing: border-box;
+    .uk-nav-default {
+        margin-top: 25px;
+    }
 }

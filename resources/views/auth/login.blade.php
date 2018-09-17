@@ -1,6 +1,55 @@
 @extends('layouts.website')
 
 @section('content')
+
+<form class="uk-form-stacked" method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}">
+        @csrf
+        <fieldset class="uk-fieldset">
+            <legend class="uk-legend">{{ __('Login') }}</legend>
+    
+            <!-- E-mail address-->
+            <div class="uk-margin">
+                <label class="uk-form-label" for="form-stacked-text">E-Mail address</label>
+                <div class="uk-form-controls">
+                    <input class="uk-input" id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+                    @if ($errors->has('email'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('email') }}</strong>
+                        </span>
+                    @endif
+                </div>
+            </div>
+    
+            <!-- Password -->
+            <div class="uk-margin">
+                <label class="uk-form-label" for="form-stacked-text">Password</label>
+                    <div class="uk-form-controls">
+                        <input class="uk-input" id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                        @if ($errors->has('password'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('password') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+                </div>
+                
+            
+                
+                <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+                        <label><input class="uk-checkbox" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}> Remember me</label>
+                        
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">
+                            {{ __('Login') }}
+                        </button>
+
+                        <a class="btn btn-link" href="{{ route('password.request') }}">
+                            {{ __('Forgot Your Password?') }}
+                        </a>
+        </fieldset> 
+    </form>
+<!--
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -8,6 +57,9 @@
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
+                    
+
+
                     <form method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}">
                         @csrf
 
@@ -68,4 +120,5 @@
         </div>
     </div>
 </div>
+-->
 @endsection

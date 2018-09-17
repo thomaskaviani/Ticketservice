@@ -21,7 +21,7 @@
     <ul class="uk-navbar-nav">
         @if(Auth::guest())
           <li><a href="{{ route('login')}}">Login</a></li>
-          <li><a href="/about">Register</a></li>
+          <li><a href="/register">Register</a></li>
         @else
           <li>
             <a href="#">{{ Auth::user()->username }}</a>
