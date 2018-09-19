@@ -6,7 +6,7 @@
         <li><a href="/myevents">Mijn evenementen</a></li>
         <li><a href="/myevents/create">Create</a></li>
     </ul>
-    {!! Form::open(['action' => 'EventsController@store', 'method' => 'POST', 'class' => 'dashblock']) !!}
+    {!! Form::open(['action' => 'EventsController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data', 'class' => 'dashblock']) !!}
         <div class="uk-margin">
             {{Form::label('eventName', 'Event name')}}
             {{Form::text('eventName', '', ['class' => 'uk-input', 'placeholder' => 'Eventname'] )}}
@@ -39,6 +39,9 @@
             {{Form::label('info', 'Informatie event')}}
             <br>
             {{Form::textarea('info', '', ['id' => 'article-ckeditor', 'class' => 'uk-textarea', 'placeholder' => 'Informatie'] )}}
+        </div>
+        <div class="uk-margin">
+            {{Form::file('event_image')}}
         </div>
         {{Form::submit('Submit', ['class' =>'uk-button uk-button-primary'])}}
     {!! Form::close() !!}

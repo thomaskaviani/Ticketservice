@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Event;
 use App\User;
 
@@ -53,8 +54,26 @@ class EventsController extends Controller
     {
         $this->validate($request, [
             'eventName' => 'required',
-            'info' => 'required'
+            'info' => 'required',
+            'event_image' => 'image|nullable|max:1999'
         ]);
+
+        // Handle File Upload
+
+        if($request->hasFile('event_image')){
+            // Get filename with the extension
+            $filenameWithExt = $request->file('event_image')->getClientOriginalName();
+            // Get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get just ext 
+            $extension = $request->file('event_image')->getClientOriginalExtension();
+            //Filename to store
+            $filenameToStore = $filename.'_'.time().'.'.$extension;
+            //Upload Image
+            $path = $request->file('event_image')->storeAs('public/event_images', $filenameToStore);
+        } else {
+            $filenameToStore = 'noimage.jpg';
+        }
         // Creat event
         $event = new Event;
         $event->eventName = $request->input('eventName');
@@ -66,6 +85,7 @@ class EventsController extends Controller
         $event->website = $request->input('website');
         $event->info = $request->input('info');
         $event->user_id = auth()->user()->id;
+        $event->event_image = $filenameToStore;
         $event->save();
         return redirect('/myevents')->with('success', 'Event created');
 
@@ -118,6 +138,21 @@ class EventsController extends Controller
             'eventName' => 'required',
             'info' => 'required'
         ]);
+
+        // Handle File Upload
+
+        if($request->hasFile('event_image')){
+            // Get filename with the extension
+            $filenameWithExt = $request->file('event_image')->getClientOriginalName();
+            // Get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get just ext 
+            $extension = $request->file('event_image')->getClientOriginalExtension();
+            //Filename to store
+            $filenameToStore = $filename.'_'.time().'.'.$extension;
+            //Upload Image
+            $path = $request->file('event_image')->storeAs('public/event_images', $filenameToStore);
+        }
         // Creat event
         $event = Event::find($id);
         $event->eventName = $request->input('eventName');
@@ -128,6 +163,9 @@ class EventsController extends Controller
         $event->endDate = $request->input('enddate');
         $event->website = $request->input('website');
         $event->info = $request->input('info');
+        if($request->hasFile('event_image')){
+            $event->event_image = $filenameToStore;
+        }
         $event->save();
         return redirect('/myevents')->with('success', 'Event updated');
     }
@@ -140,7 +178,15 @@ class EventsController extends Controller
      */
     public function destroy($id)
     {
+
         $event = Event::find($id);
+        if(auth()->user()->id !== $event->user_id){
+            return redirect('/myevents')->with('error', 'Unauthorized page');
+        }
+
+        if($event->event_image != 'noimage.jpg'){
+            Storage::delete('public/event_images/'.$event->event_image);
+        }
         $event->delete();
         return redirect('/myevents')->with('success', 'Event removed');
     }

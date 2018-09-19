@@ -1,25 +1,28 @@
 @extends('layouts.dashboard')
 
 @section('content')
-    <div class="dashblock">
+
         @if(count($events) > 0)
-            <table style="width:100%">
-                <tr>
-                    <th style="text-align: left">Eventname</th>
-                    <th></th> 
-                    <th></th>
-                </tr>
+        <div class="uk-grid">
                 @foreach($events as $event)
-                    <tr>
-                        <td><a href="/myevents/{{$event->id}}">{{$event->eventName}}</a></td>
-                        <td></td>
-                    </tr>
-                    
+                <a href="/myevents/{{$event->id}}" class="uk-width-1-3">
+                    <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
+                        <div class="uk-card-media-left uk-cover-container">
+                            <img src="storage/event_images/{{$event->event_image}}" alt="" uk-cover>
+                         
+                        </div>
+                        <div>
+                            <div class="uk-card-body">
+                                <h3 class="uk-card-title">{{$event->eventName}}</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
                 @endforeach
-            </table>    
+        </div> 
         @else
             <p>No events found</p>
         @endif
-    </div>
     
 @endsection

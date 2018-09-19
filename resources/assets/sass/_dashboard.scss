@@ -8,7 +8,7 @@
 
     .page-container {
         min-height: 100vh;
-        padding-left: 300px;
+        padding-left: 280px;
         background-color: #f7f7f7;
         .dash {
             padding: 40px;
@@ -26,6 +26,13 @@
         background-color: #27ae60;
         color: white;
         margin-bottom: 20px;
+    }
+    .myEvents {
+        a{
+            &:hover{
+                text-decoration: none !important;
+            }
+        }
     }
     // My events
     @import 'dashboard/nav';

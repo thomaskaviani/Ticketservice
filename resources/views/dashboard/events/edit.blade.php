@@ -7,7 +7,7 @@
         <li><a href="/myevents/{{$event->id}}">{{$event->eventName}}</a></li>
         <li><a href="/myevents/{{$event->id}}/edit">Edit</a></li>
     </ul>
-    {!! Form::open(['action' => ['EventsController@update', $event->id], 'method' => 'POST', 'class' => 'dashblock']) !!}
+    {!! Form::open(['action' => ['EventsController@update', $event->id], 'method' => 'POST', 'enctype' => 'multipart/form-data', 'class' => 'dashblock']) !!}
         <div class="uk-margin uk-width-1-2s">
             {{Form::label('eventName', 'Event name')}}
             {{Form::text('eventName', $event->eventName, ['class' => 'uk-input', 'placeholder' => 'Eventname'] )}}
@@ -40,6 +40,9 @@
             {{Form::label('info', 'Informatie event')}}
             <br>
             {{Form::textarea('info', $event->info, ['id' => 'article-ckeditor', 'class' => 'uk-textarea', 'placeholder' => 'Informatie'] )}}
+        </div>
+        <div class="uk-margin">
+            {{Form::file('event_image')}}
         </div>
         {{Form::hidden('_method', 'PUT')}}
         {{Form::submit('Submit', ['class' =>'btn'])}}

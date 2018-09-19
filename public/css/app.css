@@ -29,76 +29,88 @@
   padding-top: 70px;
 }
 
-.dashboard .sidebar {
+.dashboard .leftnavbar {
   background-color: #363434;
   bottom: 0;
   overflow: hidden;
   position: fixed;
   top: 0;
-  -webkit-transition: all .2s ease;
-  transition: all .2s ease;
-  width: 300px;
+  width: 280px;
   z-index: 1000;
-  padding: 0px 40px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
 }
 
-.dashboard .sidebar .uk-nav-default {
+.dashboard .leftnavbar .uk-nav-default > li > a:focus,
+.dashboard .leftnavbar .uk-nav-default > li > a:hover {
+  color: #62929a;
+}
+
+.dashboard .leftnavbar .icon {
+  color: #62929a;
+}
+
+.dashboard .leftnavbar .heading {
+  background-color: #2c2828;
+  height: 80px;
+}
+
+.dashboard .leftnavbar .heading h4 {
+  color: white;
+  padding: 30px 0px 30px 30px;
+}
+
+.dashboard .leftnavbar .heading h4 span {
+  color: #62929a;
+}
+
+.dashboard .leftnavbar .uk-nav-default {
+  margin-top: 40px;
+  padding: 0px 30px;
+}
+
+.dashboard .leftnavbar .uk-active a {
+  color: white !important;
+}
+
+.dashboard .leftnavbar li a {
+  color: white;
+}
+
+.dashboard .leftnavbar li .uk-nav-sub a {
+  color: white;
+}
+
+.dashboard .leftnavbar li .uk-nav-sub a:hover {
+  color: #62929a;
+}
+
+.dashboard .leftnavbar .uk-nav-parent-icon > .uk-parent > a::after {
+  color: white;
+}
+
+.dashboard .topbar {
+  background-color: white !important;
+}
+
+.dashboard .topbar h3 {
   margin-top: 25px;
+  margin-left: 30px;
 }
 
-.dashboard .topBar {
-  background-color: #fff;
-  position: relative;
-  width: 100%;
-  height: 70px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
-          box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+.dashboard .topbar .uk-navbar-right {
+  margin-right: 30px;
 }
 
-.dashboard .topBar h3 {
-  padding-top: 20px;
-  padding-left: 45px;
+.dashboard .topbar a span {
+  margin-right: 10px;
 }
 
-.dashboard .topBar .dropdown {
-  position: absolute;
-  right: 100px;
-  top: 25px;
-}
-
-.dashboard .topBar .dropdown .dropbtn {
-  padding: 20px 0px;
-}
-
-.dashboard .topBar .dropdown-content {
-  display: none;
-  margin-top: 18px;
-  margin-left: -120px;
-  position: absolute;
-  background-color: #fff;
-  min-width: 160px;
-  -webkit-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-
-.dashboard .topBar .dropdown-content a {
-  text-align: right;
-  display: block;
-  text-decoration: none;
-  color: black;
-}
-
-.dashboard .topBar .dropdown:hover .dropdown-content {
-  display: block;
+.dashboard .topbar a p {
+  margin-top: 22px;
 }
 
 .dashboard .page-container {
   min-height: 100vh;
-  padding-left: 300px;
+  padding-left: 280px;
   background-color: #f7f7f7;
 }
 
@@ -122,23 +134,66 @@
   margin-bottom: 20px;
 }
 
-.dashboard .sidebar {
+.dashboard .myEvents a:hover {
+  text-decoration: none !important;
+}
+
+.dashboard .leftnavbar {
   background-color: #363434;
   bottom: 0;
   overflow: hidden;
   position: fixed;
   top: 0;
-  -webkit-transition: all .2s ease;
-  transition: all .2s ease;
-  width: 300px;
+  width: 280px;
   z-index: 1000;
-  padding: 0px 40px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
 }
 
-.dashboard .sidebar .uk-nav-default {
-  margin-top: 25px;
+.dashboard .leftnavbar .uk-nav-default > li > a:focus,
+.dashboard .leftnavbar .uk-nav-default > li > a:hover {
+  color: #62929a;
+}
+
+.dashboard .leftnavbar .icon {
+  color: #62929a;
+}
+
+.dashboard .leftnavbar .heading {
+  background-color: #2c2828;
+  height: 80px;
+}
+
+.dashboard .leftnavbar .heading h4 {
+  color: white;
+  padding: 30px 0px 30px 30px;
+}
+
+.dashboard .leftnavbar .heading h4 span {
+  color: #62929a;
+}
+
+.dashboard .leftnavbar .uk-nav-default {
+  margin-top: 40px;
+  padding: 0px 30px;
+}
+
+.dashboard .leftnavbar .uk-active a {
+  color: white !important;
+}
+
+.dashboard .leftnavbar li a {
+  color: white;
+}
+
+.dashboard .leftnavbar li .uk-nav-sub a {
+  color: white;
+}
+
+.dashboard .leftnavbar li .uk-nav-sub a:hover {
+  color: #62929a;
+}
+
+.dashboard .leftnavbar .uk-nav-parent-icon > .uk-parent > a::after {
+  color: white;
 }
 
 /* ========================================================================
